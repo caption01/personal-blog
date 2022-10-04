@@ -10,4 +10,9 @@ ___
 ### Backend
 
 
+**Stack**
+
+- Nestjs
+- Prisma
+
 
