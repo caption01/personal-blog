@@ -1,23 +1,49 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { User as UserModel } from '@prisma/client';
 
 import { UsersService } from './users.service';
+import { CreateUserDto } from './dtos/create-user.dto';
+import { UserDto } from './dtos/user.dto';
+import { Serialize } from '../interceptors/serializer';
 
+@Serialize(UserDto)
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post('/signin')
-  async signinUser(
-    @Body() body: { email: string; password: string },
-  ): Promise<UserModel> {
-    return this.usersService.user({ email: body.email });
+  async signin(@Body() body: Partial<CreateUserDto>): Promise<UserModel> {
+    const user = await this.usersService.findOne({ email: body.email });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const { password } = user;
+
+    if (password !== body.password) {
+      throw new BadRequestException('incorrect password');
+    }
+
+    return user;
   }
 
   @Post('/signup')
-  async signupUser(
-    @Body() body: { name: string; email: string; password: string },
-  ): Promise<UserModel> {
-    return this.usersService.createUser(body);
+  async signup(@Body() body: CreateUserDto): Promise<UserModel> {
+    let user = await this.usersService.findOne({ email: body.email });
+
+    if (user) {
+      throw new BadRequestException('Email alread used');
+    }
+
+    user = await this.usersService.create(body);
+
+    return user;
   }
 }
