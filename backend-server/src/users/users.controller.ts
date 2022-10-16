@@ -11,6 +11,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UserDto } from './dtos/user.dto';
 import { Serialize } from '../interceptors/serializer';
+import { isPasswordEqual } from '../utils/auth/auth';
 
 @Serialize(UserDto)
 @Controller('users')
@@ -25,9 +26,7 @@ export class UsersController {
       throw new NotFoundException('User not found');
     }
 
-    const { password } = user;
-
-    if (password !== body.password) {
+    if (!isPasswordEqual(body.password, user.password)) {
       throw new BadRequestException('incorrect password');
     }
 

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { User, Prisma } from '@prisma/client';
 
 import { PrismaService } from '../prisma.service';
-
+import { generatePassword } from '../utils/auth/auth';
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
@@ -33,7 +33,13 @@ export class UsersService {
   }
 
   async create(data: Prisma.UserCreateInput): Promise<User> {
-    return this.prisma.user.create({ data });
+    const userData = {
+      email: data.email,
+      password: await generatePassword(data.password),
+      is_admin: data.is_admin,
+    };
+
+    return this.prisma.user.create({ data: userData });
   }
 
   async update(params: {
