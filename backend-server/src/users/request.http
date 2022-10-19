@@ -3,9 +3,10 @@ POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-    "email": "d@d.com",
-    "password": "d",
-    "is_admin": true
+    "email": "staff1@home.com",
+    "username": "staff1",
+    "password": "12345",
+    "is_admin": false
 }
 
 
@@ -14,12 +15,17 @@ POST http://localhost:3000/users/signin
 Content-Type: application/json
 
 {
-    "username": "d@d.com",
-    "password": "d"
+    "username": "superadmin",
+    "password": "password"
 }
 
 
 ### Protect Route whoiam
 GET http://localhost:3000/users/whoiam
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRAZC5jb20iLCJ1c2VyX2lkIjo3LCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjY2MTkyNzM2LCJleHAiOjE2NjYyMDcxMzZ9.qBVSlnBSfKcZGXlhoO_gd9VB1N3enYN5Bn5pp_38nvw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AaG9tZS5jb20iLCJ1c2VyX2lkIjoxLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjY2MTk1MzY0LCJleHAiOjE2NjYyMDk3NjR9.jiY87YHbPoPvOCHPlifKXcF-VANQfuk-8oAZM2hOYGU
+
+
+### Pubic Route iam
+GET http://localhost:3000/users/iam
+Content-Type: application/json

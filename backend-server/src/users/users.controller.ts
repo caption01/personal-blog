@@ -7,7 +7,6 @@ import {
   Request,
   Get,
 } from '@nestjs/common';
-import { User as UserModel } from '@prisma/client';
 
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
@@ -17,6 +16,7 @@ import { AutherizedUserDto } from './dtos/autherized-user.dto';
 import { Serialize } from '../interceptors/serializer';
 import { LocalAuthGuard } from '../utils/passport/local-auth.guard';
 import { JwtAuthGuard } from '../utils/passport/jwt-auth.guard';
+import { Public } from '../interceptors/public';
 
 @Controller('users')
 export class UsersController {
@@ -45,7 +45,8 @@ export class UsersController {
 
     return {
       user_id: user.id,
-      username: user.email,
+      username: user.username,
+      email: user.email,
       is_admin: user.is_admin,
     };
   }
@@ -55,5 +56,14 @@ export class UsersController {
   @Get('whoiam')
   async whoiam(@Request() req) {
     return req.user;
+  }
+
+  @Public()
+  @UseGuards(JwtAuthGuard)
+  @Get('iam')
+  async iam(@Request() req) {
+    return {
+      message: 'i am public route',
+    };
   }
 }

@@ -5,6 +5,9 @@ export class PayloadUserDto {
   user_id: number;
 
   @Expose()
+  email: string;
+
+  @Expose()
   username: string;
 
   @Expose()

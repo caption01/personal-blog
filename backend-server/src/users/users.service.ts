@@ -35,6 +35,7 @@ export class UsersService {
   async create(data: Prisma.UserCreateInput): Promise<User> {
     const userData = {
       email: data.email,
+      username: data.username,
       password: await generatePassword(data.password),
       is_admin: data.is_admin,
     };

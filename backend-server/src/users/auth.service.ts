@@ -15,8 +15,8 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(email: string, password: string): Promise<User> {
-    const user = await this.usersService.findOne({ email });
+  async validateUser(username: string, password: string): Promise<User> {
+    const user = await this.usersService.findOne({ username });
 
     if (!user || !(await isPasswordEqual(password, user.password))) {
       return null;
@@ -27,7 +27,8 @@ export class AuthService {
 
   async login(user: User): Promise<AutherizedUserDto> {
     const payload = {
-      username: user.email,
+      username: user.username,
+      email: user.email,
       user_id: user.id,
       is_admin: user.is_admin,
     } as PayloadUserDto;
