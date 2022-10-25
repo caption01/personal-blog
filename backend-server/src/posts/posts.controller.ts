@@ -30,12 +30,12 @@ export class PostsController {
     @Body() body: CreatePostDto,
     @Request() request,
   ): Promise<PostModel> {
-    const userId = request.user.user_id;
+    const user = request.user;
 
     const postData = {
       ...body,
       author: {
-        connect: { id: userId },
+        connect: { id: user.id },
       },
     };
 
