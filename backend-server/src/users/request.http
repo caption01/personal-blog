@@ -3,8 +3,8 @@ POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-    "email": "staff1@home.com",
-    "username": "staff1",
+    "email": "staff2@home.com",
+    "username": "staff2",
     "password": "12345",
     "is_admin": false
 }
@@ -23,7 +23,7 @@ Content-Type: application/json
 ### Protect Route whoiam
 GET http://localhost:3000/users/whoiam
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AaG9tZS5jb20iLCJ1c2VyX2lkIjoxLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjY2MTk1MzY0LCJleHAiOjE2NjYyMDk3NjR9.jiY87YHbPoPvOCHPlifKXcF-VANQfuk-8oAZM2hOYGU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0YWZmMiIsImVtYWlsIjoic3RhZmYyQGhvbWUuY29tIiwidXNlcl9pZCI6MywiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NjY3MDg4MjIsImV4cCI6MTY2NjcyMzIyMn0.wm_t1SkyGVzAKnDOw52A-X2ssKxhkmTYETrggU4T-GA
 
 
 ### Pubic Route iam

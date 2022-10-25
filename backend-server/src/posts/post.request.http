@@ -1,0 +1,25 @@
+### Get Posts
+GET http://localhost:3000/posts
+Content-Type: application/json
+
+
+### Create a Post
+POST http://localhost:3000/posts/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0YWZmMiIsImVtYWlsIjoic3RhZmYyQGhvbWUuY29tIiwidXNlcl9pZCI6MywiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NjY3MDg4MjIsImV4cCI6MTY2NjcyMzIyMn0.wm_t1SkyGVzAKnDOw52A-X2ssKxhkmTYETrggU4T-GA
+
+{
+    "title": "second-post-2",
+    "content": {
+        "blocks" : [
+            {
+                "id" : "ybzChKQzG9",
+                "type" : "header",
+                "data" : {
+                    "text" : "Editor.js",
+                    "level" : 2
+                }
+            }
+        ]
+    }
+}
