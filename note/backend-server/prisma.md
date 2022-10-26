@@ -43,3 +43,11 @@ remove all data and re-apply all migration files.
 ```
 $ npx prisma migrate reset
 ```
+
+---
+
+**Adding Relation Type**
+
+using Prisma.GetPayload from @prisma/client to get more relation type
+
+![img-02!](./image/prima-get-payload.png 'img-02')

@@ -84,3 +84,30 @@ src/app.moduel.ts
   ...
 })
 ```
+
+---
+
+**Expose with nested object**
+
+using Type from class-transformer
+
+```
+import { Expose, Type <--here } from 'class-transformer';
+
+class Posts {
+  @Expose()
+  id: number;
+
+  @Expose()
+  title: string;
+}
+
+export class CategoryDto {
+
+  ...other @Expose()
+
+  @Expose()
+  @Type(() => Posts) <--here
+  posts?: Posts[];
+}
+```
