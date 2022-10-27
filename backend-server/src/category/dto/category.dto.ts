@@ -1,20 +1,21 @@
 import { Expose, Type } from 'class-transformer';
 
-// class PostCategories {
-//   @Expose()
-//   name: string;
-// }
-
-export class PostDto {
+class Posts {
   @Expose()
   id: number;
 
   @Expose()
   title: string;
+}
+
+export class CategoryDto {
+  @Expose()
+  id: number;
 
   @Expose()
-  content: any;
+  name: string;
 
   @Expose()
-  categories: string[];
+  @Type(() => Posts)
+  posts?: Posts[];
 }

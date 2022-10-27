@@ -3,10 +3,10 @@ POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-    "email": "staff2@home.com",
-    "username": "staff2",
-    "password": "12345",
-    "is_admin": false
+    "email": "superadmin@home.com",
+    "username": "admin",
+    "password": "admin",
+    "is_admin": true
 }
 
 
@@ -15,8 +15,8 @@ POST http://localhost:3000/users/signin
 Content-Type: application/json
 
 {
-    "username": "superadmin",
-    "password": "password"
+    "username": "admin",
+    "password": "admin"
 }
 
 
