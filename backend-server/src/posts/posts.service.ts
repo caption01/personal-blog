@@ -9,19 +9,20 @@ export class PostsService {
 
   async findOne(
     postWhereUniqueInput: Prisma.PostWhereUniqueInput,
-  ): Promise<Post | null> {
+  ): Promise<Prisma.PostGetPayload<{ include: { categories: true } } | null>> {
     return this.prisma.post.findUnique({
       where: postWhereUniqueInput,
+      include: { categories: true },
     });
   }
 
-  async find(params: {
+  async findMany(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.UserWhereUniqueInput;
     where?: Prisma.UserWhereInput;
     orderBy?: Prisma.UserOrderByWithRelationInput;
-  }): Promise<Post[]> {
+  }): Promise<Prisma.PostGetPayload<{ include: { categories: true } }>[]> {
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.post.findMany({
       skip,
@@ -29,6 +30,7 @@ export class PostsService {
       cursor,
       where,
       orderBy,
+      include: { categories: true },
     });
   }
 

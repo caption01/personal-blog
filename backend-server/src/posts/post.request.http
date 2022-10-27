@@ -3,13 +3,18 @@ GET http://localhost:3000/posts
 Content-Type: application/json
 
 
+### Get Post By Id
+GET http://localhost:3000/posts/5
+Content-Type: application/json
+
+
 ### Create a Post
 POST http://localhost:3000/posts/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0YWZmMiIsImVtYWlsIjoic3RhZmYyQGhvbWUuY29tIiwidXNlcl9pZCI6MywiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NjY3MDg4MjIsImV4cCI6MTY2NjcyMzIyMn0.wm_t1SkyGVzAKnDOw52A-X2ssKxhkmTYETrggU4T-GA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlcmFkbWluQGhvbWUuY29tIiwidXNlcl9pZCI6MSwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2Njg3ODg5MCwiZXhwIjoxNjY2ODkzMjkwfQ.F3x-uQsPFjBShgW2uGzFPlONfyG4aIti2cTeFgcMP4g
 
 {
-    "title": "second-post-6",
+    "title": "new_a2",
     "content": {
         "blocks" : [
             {
@@ -21,5 +26,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0Y
                 }
             }
         ]
-    }
+    },
+    "category_name": ["Design"]
 }

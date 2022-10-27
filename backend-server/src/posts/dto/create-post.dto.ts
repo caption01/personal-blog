@@ -1,5 +1,4 @@
-import { IsString, IsObject } from 'class-validator';
-import { Transform } from 'class-transformer';
+import { IsString, IsObject, IsArray } from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
@@ -7,4 +6,7 @@ export class CreatePostDto {
 
   @IsObject()
   content: object;
+
+  @IsArray()
+  category_name: string[];
 }
