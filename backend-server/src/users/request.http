@@ -1,5 +1,5 @@
 ### Signup a User
-POST http://localhost:3000/users/signup
+POST http://localhost:3010/users/signup
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ### Signin User
-POST http://localhost:3000/users/signin
+POST http://localhost:3010/users/signin
 Content-Type: application/json
 
 {
@@ -21,11 +21,11 @@ Content-Type: application/json
 
 
 ### Protect Route whoiam
-GET http://localhost:3000/users/whoiam
+GET http://localhost:3010/users/whoiam
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0YWZmMiIsImVtYWlsIjoic3RhZmYyQGhvbWUuY29tIiwidXNlcl9pZCI6MywiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NjY3MDg4MjIsImV4cCI6MTY2NjcyMzIyMn0.wm_t1SkyGVzAKnDOw52A-X2ssKxhkmTYETrggU4T-GA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlcmFkbWluQGhvbWUuY29tIiwidXNlcl9pZCI6MSwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2NzMxODY0MSwiZXhwIjoxNjY3MzMzMDQxfQ.Ax78cuUgfr1RQDTiJLKLrHfqv___wzIxs9Axtmbt660
 
 
 ### Pubic Route iam
-GET http://localhost:3000/users/iam
+GET http://localhost:3010/users/iam
 Content-Type: application/json

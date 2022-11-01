@@ -1,10 +1,10 @@
 ### Get Category
-GET http://localhost:3000/category
+GET http://localhost:3010/category
 Content-Type: application/json
 
 
 ### Create a Post
-POST http://localhost:3000/category/create
+POST http://localhost:3010/category/create
 Content-Type: application/json
 
 {
