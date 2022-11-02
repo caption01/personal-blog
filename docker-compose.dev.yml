@@ -12,6 +12,28 @@ services:
     volumes:
       - blog-db:/var/lib/postgresql/data
 
+  backend:
+    container_name: backend-server
+    build:
+      context: ./backend-server
+      dockerfile: dockerfile.dev
+    depends_on:
+      - db
+    ports:
+      - 3010:3000
+      - 3020:5555
+    volumes:
+      - ./backend-server/src:/usr/src/app/src
+      - ./backend-server/prisma:/usr/src/app/prisma
+    env_file:
+      - ./backend-server/.env
+    command:
+      - /bin/sh
+      - -c
+      - |
+        npx prisma migrate deploy &&
+        npx prisma studio &>/dev/null &&
+        npm run start:dev
+
 volumes:
   blog-db:
-    driver: local

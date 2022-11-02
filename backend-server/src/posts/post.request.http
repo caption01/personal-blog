@@ -1,20 +1,20 @@
 ### Get Posts
-GET http://localhost:3000/posts
+GET http://localhost:3010/posts
 Content-Type: application/json
 
 
 ### Get Post By Id
-GET http://localhost:3000/posts/5
+GET http://localhost:3010/posts/2
 Content-Type: application/json
 
 
 ### Create a Post
-POST http://localhost:3000/posts/create
+POST http://localhost:3010/posts/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlcmFkbWluQGhvbWUuY29tIiwidXNlcl9pZCI6MSwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2Njg3ODg5MCwiZXhwIjoxNjY2ODkzMjkwfQ.F3x-uQsPFjBShgW2uGzFPlONfyG4aIti2cTeFgcMP4g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlcmFkbWluQGhvbWUuY29tIiwidXNlcl9pZCI6MSwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2NzMxODY0MSwiZXhwIjoxNjY3MzMzMDQxfQ.Ax78cuUgfr1RQDTiJLKLrHfqv___wzIxs9Axtmbt660
 
 {
-    "title": "new_a2",
+    "title": "Javscript is the best",
     "content": {
         "blocks" : [
             {
@@ -27,5 +27,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkb
             }
         ]
     },
-    "category_name": ["Design"]
+    "category_name": ["Javascript", "NodeJS"]
 }
